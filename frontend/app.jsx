@@ -16,12 +16,12 @@ const App = () => {
         }
     }, []);
 
-    const login = (usernameParam) => { 
-        setIsLoggedIn(true); 
+    const login = (usernameParam) => {
+        setIsLoggedIn(true);
         setActiveUser(usernameParam || 'Traveler');
-        localStorage.setItem('isLoggedIn', 'true'); 
+        localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('username', usernameParam || 'Traveler');
-        setView('destinations'); 
+        setView('destinations');
     };
     const logout = () => { setIsLoggedIn(false); localStorage.removeItem('isLoggedIn'); localStorage.removeItem('username'); setView('login'); };
     const askAi = (msg) => { setInitialAiMessage(msg); setView('ai'); };
@@ -68,7 +68,7 @@ const GoogleAuthPopup = ({ onSelect, onClose }) => {
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10000, backdropFilter: 'blur(2px)' }}>
             <div style={{ background: 'white', width: '400px', borderRadius: '12px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)', overflow: 'hidden', animation: 'fadeIn 0.2s ease-out' }}>
                 <div style={{ padding: '2rem 2rem 1rem', textAlign: 'center' }}>
-                    <svg viewBox="0 0 48 48" width="40px" height="40px" style={{ margin: '0 auto 1rem' }}><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    <svg viewBox="0 0 48 48" width="40px" height="40px" style={{ margin: '0 auto 1rem' }}><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" /><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" /><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" /><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" /></svg>
                     <h2 style={{ fontSize: '1.5rem', fontWeight: '500', color: '#202124', marginBottom: '0.5rem' }}>Sign in with Google</h2>
                     <p style={{ color: '#5f6368', fontSize: '0.9rem' }}>Choose an account to continue to Tourist Companion</p>
                 </div>
@@ -109,7 +109,7 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', background: 'var(--sidebar-bg)', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', height: '100vh', background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(79, 70, 229, 0.8)), url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80") center/cover no-repeat', alignItems: 'center', justifyContent: 'center' }}>
             {showGoogleAuth && <GoogleAuthPopup onSelect={(usr) => onLogin(usr)} onClose={() => setShowGoogleAuth(false)} />}
             <div style={{ background: 'white', padding: '3rem', borderRadius: '1.5rem', width: '400px', textAlign: 'center', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)' }}>
                 <div style={{ background: 'linear-gradient(135deg, var(--sidebar-bg) 0%, var(--primary) 100%)', color: 'white', width: '70px', height: '70px', borderRadius: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem', boxShadow: '0 10px 15px -3px rgba(79,70,229,0.3)' }}>
@@ -117,7 +117,7 @@ const Login = ({ onLogin }) => {
                 </div>
                 <h1 style={{ marginBottom: '0.5rem', fontSize: '1.8rem', color: 'var(--text-primary)' }}>Welcome Back</h1>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '0.9rem' }}>Enter your credentials to access the portal</p>
-                
+
                 {error && <div style={{ color: '#ef4444', backgroundColor: '#fef2f2', padding: '0.8rem', borderRadius: '0.5rem', marginBottom: '1.5rem', fontSize: '0.85rem', fontWeight: '500' }}>{error}</div>}
 
                 <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '1.5rem' }}>
@@ -273,7 +273,7 @@ const Destinations = ({ onAskAi, onOpenMap }) => {
                                     Plan with AI Assistant
                                 </button>
                                 <button className="btn-secondary" style={{ marginTop: '0.5rem', background: '#ecfeff', borderColor: '#06b6d4', color: '#0891b2', display: 'flex', justifyContent: 'center', gap: '0.5rem' }} onClick={() => { setSelected(null); onOpenMap(selected); }}>
-                                    <span className="material-icons-round" style={{fontSize:'1.2rem'}}>navigation</span> Start Live Navigation
+                                    <span className="material-icons-round" style={{ fontSize: '1.2rem' }}>navigation</span> Start Live Navigation
                                 </button>
                             </div>
                         </div>
@@ -285,87 +285,180 @@ const Destinations = ({ onAskAi, onOpenMap }) => {
 };
 
 // --- 2. OVERVIEW DASHBOARD ---
-const Overview = () => (
-    <div>
-        <div className="hero-banner">
-            <h2>India Travel Dashboard</h2>
-            <p style={{ opacity: 0.9, marginTop: '0.5rem' }}>Macro-level insights for surviving and thriving in the subcontinent.</p>
-        </div>
-        <div className="snapshot-grid">
-            <div className="snap-card">
-                <div className="snap-header"><div className="snap-icon"><span className="material-icons-round">language</span></div><h3>Country Snapshot</h3></div>
-                <ul className="snap-list">
-                    <li><span className="material-icons-round">payments</span> Currency: Indian Rupee (INR). ≈83 INR to 1 USD.</li>
-                    <li><span className="material-icons-round">translate</span> Languages: Hindi & English dominant. 22 regional official languages.</li>
-                    <li><span className="material-icons-round">schedule</span> Time Zone: IST (UTC +5:30). No daylight saving.</li>
-                </ul>
-            </div>
-            <div className="snap-card">
-                <div className="snap-header"><div className="snap-icon" style={{ color: 'var(--accent)', background: 'var(--accent-light)' }}><span className="material-icons-round">sim_card</span></div><h3>Digital Essentials</h3></div>
-                <ul className="snap-list">
-                    <li><span className="material-icons-round">power</span> Plugs: Type C, D, and M (230V @ 50Hz). Bring universal adapters.</li>
-                    <li><span className="material-icons-round">cell_tower</span> SIM: Airtel/Jio. Requires passport and physical photo upon arrival at airport.</li>
-                    <li><span className="material-icons-round">app_shortcut</span> Apps: Uber, Ola (Cabs), Zomato, Swiggy (Food).</li>
-                </ul>
-            </div>
-            <div className="snap-card">
-                <div className="snap-header"><div className="snap-icon" style={{ color: 'var(--danger)', background: '#fee2e2' }}><span className="material-icons-round">diversity_3</span></div><h3>Cultural Rules</h3></div>
-                <ul className="snap-list">
-                    <li><span className="material-icons-round">do_not_step</span> DO: Remove shoes before entering ANY temple or home.</li>
-                    <li><span className="material-icons-round">pan_tool</span> DON'T: Eat or pass objects with your left hand.</li>
-                    <li><span className="material-icons-round">checkroom</span> DRESS: Modestly. Cover shoulders and knees outside urban centers.</li>
-                </ul>
-            </div>
-        </div>
+const Overview = () => {
+    const pieRef = useRef(null);
+    const lineRef = useRef(null);
+    const barRef = useRef(null);
+    
+    const pieChart = useRef(null);
+    const lineChart = useRef(null);
+    const barChart = useRef(null);
 
-        <h3 style={{ marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Indian Tourism Analytics</h3>
-        <div className="cards-grid">
-            <div className="snap-card" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                <div style={{
-                    width: '180px', height: '180px', borderRadius: '50%',
-                    background: 'conic-gradient(#ec4899 0% 40%, #10b981 40% 65%, #fbbf24 65% 85%, #6366f1 85% 100%)',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
-                }}></div>
-                <div>
-                    <h4 style={{ marginBottom: '1rem' }}>Prime Tourist Attractions</h4>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#ec4899' }}></span> <strong>40%</strong> Heritage & Monuments</li>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#10b981' }}></span> <strong>25%</strong> Nature & Wildlife</li>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#fbbf24' }}></span> <strong>20%</strong> Spiritual Destinations</li>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#6366f1' }}></span> <strong>15%</strong> Adventure & Trekking</li>
+    useEffect(() => {
+        if (pieRef.current) {
+            if (pieChart.current) pieChart.current.destroy();
+            pieChart.current = new Chart(pieRef.current, {
+                type: 'pie',
+                data: {
+                    labels: ['Heritage & Monuments', 'Nature & Wildlife', 'Spiritual Destinations', 'Adventure & Trekking'],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: ['#f97316', '#10b981', '#a855f7', '#3b82f6'],
+                        hoverOffset: 15,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'right', labels: { font: { family: 'Inter', size: 14 } } } }
+                }
+            });
+        }
+        if (lineRef.current) {
+            if (lineChart.current) lineChart.current.destroy();
+            lineChart.current = new Chart(lineRef.current, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Foreign Tourist Arrivals (Millions)',
+                        data: [10.93, 2.74, 1.52, 6.19, 9.23, 11.50],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+        if (barRef.current) {
+            if (barChart.current) barChart.current.destroy();
+            barChart.current = new Chart(barRef.current, {
+                type: 'bar',
+                data: {
+                    labels: ['Delhi', 'Maharashtra', 'Tamil Nadu', 'UP', 'Rajasthan'],
+                    datasets: [{
+                        label: 'Top Visited States (Millions)',
+                        data: [28, 25, 22, 19, 15],
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+        return () => {
+            if (pieChart.current) pieChart.current.destroy();
+            if (lineChart.current) lineChart.current.destroy();
+            if (barChart.current) barChart.current.destroy();
+        };
+    }, []);
+
+    return (
+        <div>
+            <div className="hero-banner">
+                <h2>India Travel Dashboard</h2>
+                <p style={{ opacity: 0.9, marginTop: '0.5rem' }}>Macro-level insights for surviving and thriving in the subcontinent.</p>
+            </div>
+            <div className="snapshot-grid">
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon"><span className="material-icons-round">language</span></div><h3>Country Snapshot</h3></div>
+                    <ul className="snap-list">
+                        <li><span className="material-icons-round">payments</span> Currency: Indian Rupee (INR). ≈83 INR to 1 USD.</li>
+                        <li><span className="material-icons-round">translate</span> Languages: Hindi & English dominant. 22 regional official languages.</li>
+                        <li><span className="material-icons-round">schedule</span> Time Zone: IST (UTC +5:30). No daylight saving.</li>
+                    </ul>
+                </div>
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon" style={{ color: 'var(--accent)', background: 'var(--accent-light)' }}><span className="material-icons-round">sim_card</span></div><h3>Digital Essentials</h3></div>
+                    <ul className="snap-list">
+                        <li><span className="material-icons-round">power</span> Plugs: Type C, D, and M (230V @ 50Hz). Bring universal adapters.</li>
+                        <li><span className="material-icons-round">cell_tower</span> SIM: Airtel/Jio. Requires passport and physical photo upon arrival at airport.</li>
+                        <li><span className="material-icons-round">app_shortcut</span> Apps: Uber, Ola (Cabs), Zomato, Swiggy (Food).</li>
+                    </ul>
+                </div>
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon" style={{ color: 'var(--danger)', background: '#fee2e2' }}><span className="material-icons-round">diversity_3</span></div><h3>Cultural Rules</h3></div>
+                    <ul className="snap-list">
+                        <li><span className="material-icons-round">do_not_step</span> DO: Remove shoes before entering ANY temple or home.</li>
+                        <li><span className="material-icons-round">pan_tool</span> DON'T: Eat or pass objects with your left hand.</li>
+                        <li><span className="material-icons-round">checkroom</span> DRESS: Modestly. Cover shoulders and knees outside urban centers.</li>
                     </ul>
                 </div>
             </div>
-            <div className="snap-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h4 style={{ marginBottom: '1rem' }}>Key Inbound Demographics</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>Europe & UK</span><span>45%</span></div>
-                        <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '45%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div></div>
+
+            <h3 style={{ marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Indian Tourism Analytics</h3>
+            <div className="cards-grid">
+                <div className="snap-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <h4 style={{ marginBottom: '1rem' }}>Prime Tourist Attractions</h4>
+                    <div style={{ height: '300px', width: '100%', position: 'relative' }}>
+                        <canvas ref={pieRef}></canvas>
                     </div>
-                    <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>North America</span><span>28%</span></div>
-                        <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '28%', height: '100%', background: '#10b981', borderRadius: '4px' }}></div></div>
-                    </div>
-                    <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>Asia Pacific</span><span>18%</span></div>
-                        <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '18%', height: '100%', background: '#fbbf24', borderRadius: '4px' }}></div></div>
+                </div>
+                <div className="snap-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h4 style={{ marginBottom: '1rem' }}>Key Inbound Demographics</h4>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>Europe & UK</span><span>45%</span></div>
+                            <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '45%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div></div>
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>North America</span><span>28%</span></div>
+                            <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '28%', height: '100%', background: '#10b981', borderRadius: '4px' }}></div></div>
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem', fontSize: '0.9rem' }}><span>Asia Pacific</span><span>18%</span></div>
+                            <div style={{ height: '8px', background: '#e2e8f0', borderRadius: '4px' }}><div style={{ width: '18%', height: '100%', background: '#fbbf24', borderRadius: '4px' }}></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <h3 style={{ marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Budget Tier Estimator</h3>
-        <table className="modern-table">
-            <thead><tr><th>Travel Profile</th><th>Accommodation Type</th><th>Transport Method</th><th>Avg Local Cost / Day</th></tr></thead>
-            <tbody>
-                <tr><td><strong>Backpacker</strong></td><td>Hostels / Guesthouses</td><td>Buses, General Train Class</td><td>₹1,000 - ₹2,000</td></tr>
-                <tr><td><strong>Mid-Range</strong></td><td>3-Star Hotels / AirBnB</td><td>AC Trains, Ola/Uber Cabs</td><td>₹3,500 - ₹6,000</td></tr>
-                <tr><td><strong>Luxury</strong></td><td>5-Star Resorts / Heritage Palaces</td><td>Private AC Car / Flights</td><td>₹10,000+</td></tr>
-            </tbody>
-        </table>
-    </div>
-);
+            <div className="cards-grid" style={{ marginTop: '2rem' }}>
+                <div className="snap-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <h4 style={{ marginBottom: '1rem' }}>Foreign Tourist Arrivals Trend</h4>
+                    <div style={{ height: '250px', width: '100%', position: 'relative' }}>
+                        <canvas ref={lineRef}></canvas>
+                    </div>
+                </div>
+                <div className="snap-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <h4 style={{ marginBottom: '1rem' }}>Top Visited States</h4>
+                    <div style={{ height: '250px', width: '100%', position: 'relative' }}>
+                        <canvas ref={barRef}></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style={{ marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Budget Tier Estimator</h3>
+            <table className="modern-table">
+                <thead><tr><th>Travel Profile</th><th>Accommodation Type</th><th>Transport Method</th><th>Avg Local Cost / Day</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Backpacker</strong></td><td>Hostels / Guesthouses</td><td>Buses, General Train Class</td><td>₹1,000 - ₹2,000</td></tr>
+                    <tr><td><strong>Mid-Range</strong></td><td>3-Star Hotels / AirBnB</td><td>AC Trains, Ola/Uber Cabs</td><td>₹3,500 - ₹6,000</td></tr>
+                    <tr><td><strong>Luxury</strong></td><td>5-Star Resorts / Heritage Palaces</td><td>Private AC Car / Flights</td><td>₹10,000+</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style={{ marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Unique Aspects of Indian Tourism</h3>
+            <div className="snapshot-grid">
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon" style={{ background: '#fef2f2', color: '#ef4444' }}><span className="material-icons-round">festival</span></div><h3>Land of Festivals</h3></div>
+                    <p style={{ marginTop: '0.5rem', color: 'var(--text-secondary)' }}>Experience unmatched vibrant celebrations like Diwali, Holi, and Durga Puja which transform entire cities across the nation with light, color, and music.</p>
+                </div>
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon" style={{ background: '#ecfdf5', color: '#10b981' }}><span className="material-icons-round">forest</span></div><h3>Incredible Biodiversity</h3></div>
+                    <p style={{ marginTop: '0.5rem', color: 'var(--text-secondary)' }}>From the majestic Royal Bengal Tiger in Ranthambore to the one-horned rhinoceros in Kaziranga, India boasts 106 national parks spreading across dramatic terrains.</p>
+                </div>
+                <div className="snap-card">
+                    <div className="snap-header"><div className="snap-icon" style={{ background: '#eff6ff', color: '#3b82f6' }}><span className="material-icons-round">architecture</span></div><h3>Architectural Marvels</h3></div>
+                    <p style={{ marginTop: '0.5rem', color: 'var(--text-secondary)' }}>Home to 42 UNESCO World Heritage Sites, including the timeless Taj Mahal, ancient caves of Ajanta & Ellora, and the spectacular temples of Hampi.</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 // --- 3. AI GUIDE ---
 const AIGuide = ({ initMsg, clearMsg }) => {
@@ -524,28 +617,57 @@ const VisaInfo = () => (
 );
 
 // --- 6. WEATHER ---
-const Weather = () => (
-    <div>
-        <div className="weather-hero">
-            <div className="weather-main"><span className="material-icons-round" style={{ fontSize: '6rem' }}>wb_sunny</span><div><div className="w-temp">35°C</div><div style={{ fontSize: '1.5rem', fontWeight: '600' }}>Delhi, India</div><div style={{ opacity: 0.9 }}>Hot & Dry Summer</div></div></div>
-            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', minWidth: '250px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}><span>Humidity</span><strong>48%</strong></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}><span>AQI</span><strong>150 (Moderate)</strong></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Sunrise</span><strong>05:40 AM</strong></div>
+const Weather = () => {
+    const [destinations, setDestinations] = useState([]);
+    const [selectedCity, setSelectedCity] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/destinations')
+            .then(r => r.json())
+            .then(d => setDestinations(d));
+    }, []);
+
+    const handleSelect = (e) => {
+        const dest = destinations.find(d => d.id.toString() === e.target.value);
+        if (dest) {
+            const city = dest.location.split(',')[0].trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
+            setSelectedCity(city);
+        } else {
+            setSelectedCity('');
+        }
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '1.5rem', minHeight: '80vh' }}>
+            <div className="hero-banner" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)', marginBottom: '0' }}>
+                <h2>Live Weather Matrix</h2>
+                <p style={{ opacity: 0.9, marginTop: '0.5rem' }}>Real-time meteorological readings for all 305+ destinations.</p>
+            </div>
+            <div style={{ background: 'white', padding: '1.5rem', borderRadius: 'var(--radius-lg)', display: 'flex', gap: '1rem', alignItems: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                <span className="material-icons-round" style={{ color: '#94a3b8' }}>cloud</span>
+                <select
+                    onChange={handleSelect}
+                    style={{ flex: 1, padding: '0.8rem', border: '1px solid #cbd5e1', borderRadius: 'var(--radius-md)', background: '#f8fafc', fontSize: '1rem', outline: 'none' }}
+                >
+                    <option value="">Overview (India) - Select a Destination</option>
+                    {destinations.map(d => (
+                        <option key={d.id} value={d.id}>{d.name} ({d.location})</option>
+                    ))}
+                </select>
+            </div>
+            <div style={{ flex: 1, background: '#e2e8f0', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
+                <iframe 
+                    src={`https://www.ventusky.com/${selectedCity ? selectedCity : '?p=22.5;79.6;5'}`} 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, minHeight: '600px' }} 
+                    allowFullScreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
-        <h3 style={{ marginBottom: '1.5rem', color: 'var(--sidebar-bg)' }}>Seasonal Travel Impact</h3>
-        <div className="cards-grid">
-            <div className="snap-card"><h4>Summer (Mar - Jun)</h4><p style={{ fontSize: '0.9rem', marginTop: '1rem', color: 'gray' }}>Extreme heat in central/north plains hitting 45°C. Stick strictly to Himalayan hill stations (Shimla, Leh) or start tours at 6 AM.</p></div>
-            <div className="snap-card"><h4>Monsoon (Jul - Sep)</h4><p style={{ fontSize: '0.9rem', marginTop: '1rem', color: 'gray' }}>Heavy downpours. West Coast (Mumbai, Goa) and Northeast see floods. Great for Ayurvedic retreats in Kerala.</p></div>
-            <div className="snap-card"><h4>Winter (Oct - Feb)</h4><p style={{ fontSize: '0.9rem', marginTop: '1rem', color: 'gray' }}>The absolute best time to visit Rajasthan, Agra, and Central India. Pleasant days, crisp nights.</p></div>
-        </div>
-        <div style={{ marginTop: '2rem', background: '#fffbeb', border: '1px solid #fcd34d', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
-            <h4 style={{ color: '#b45309' }}><span className="material-icons-round">warning</span> Active Climate Alert</h4>
-            <p style={{ color: '#92400e', fontSize: '0.9rem', marginTop: '0.5rem' }}>Heatwave warnings issued for Rajasthan and Gujarat. Hydrate actively.</p>
-        </div>
-    </div>
-);
+    );
+};
 
 // --- 7. FESTIVALS ---
 const Festivals = () => (
@@ -704,7 +826,7 @@ const TouristMap = ({ targetDest }) => {
     const defaultStart = "New Delhi, India";
     const [start, setStart] = useState(defaultStart);
     const destinationName = targetDest ? `${targetDest.name}, ${targetDest.location}` : "Taj Mahal, Agra, India";
-    
+
     // Using a more robust, standard search query format that Google easily permits in iframes.
     const visualMapUrl = `https://www.google.com/maps?q=${encodeURIComponent(destinationName)}&output=embed`;
     const nativeRoutingUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(start)}&destination=${encodeURIComponent(destinationName)}`;
@@ -716,10 +838,10 @@ const TouristMap = ({ targetDest }) => {
                 <p style={{ opacity: 0.9, marginTop: '0.5rem' }}>Dynamic route planning utilizing global spatial coordinates.</p>
             </div>
             <div style={{ background: 'white', padding: '1.5rem', borderRadius: 'var(--radius-lg)', display: 'flex', gap: '1rem', alignItems: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                <span className="material-icons-round" style={{color: '#94a3b8'}}>my_location</span>
-                <input value={start} onChange={e=>setStart(e.target.value)} placeholder="Start Location (e.g. Current Hotel)" style={{flex: 1, padding: '0.8rem', border: '1px solid #cbd5e1', borderRadius: 'var(--radius-md)'}} />
-                <span className="material-icons-round" style={{color: '#94a3b8'}}>arrow_forward</span>
-                <input value={destinationName} readOnly style={{flex: 1, padding: '0.8rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', color: 'gray'}} />
+                <span className="material-icons-round" style={{ color: '#94a3b8' }}>my_location</span>
+                <input value={start} onChange={e => setStart(e.target.value)} placeholder="Start Location (e.g. Current Hotel)" style={{ flex: 1, padding: '0.8rem', border: '1px solid #cbd5e1', borderRadius: 'var(--radius-md)' }} />
+                <span className="material-icons-round" style={{ color: '#94a3b8' }}>arrow_forward</span>
+                <input value={destinationName} readOnly style={{ flex: 1, padding: '0.8rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', color: 'gray' }} />
                 <button className="btn-primary" style={{ background: '#0d9488' }} onClick={() => window.open(nativeRoutingUrl, '_blank')}>
                     <span className="material-icons-round">directions</span> Plan Route
                 </button>

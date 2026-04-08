@@ -18,7 +18,7 @@
     --info: #3b82f6;
 
     /* Architecture */
-    --sidebar-width: 280px;
+    --sidebar-width: calc(280px + 1cm);
     --header-height: 80px;
     
     /* Shadows & Radii */
@@ -60,6 +60,12 @@ body {
     height: 100vh; 
     overflow-y: auto;
     border-right: 1px solid #1e293b;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .main-content { 
